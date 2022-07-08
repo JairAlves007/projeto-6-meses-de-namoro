@@ -1,0 +1,132 @@
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-image: url(../images/foto_background.png);
+	background-size: cover;
+	object-fit: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: var(--element-default-width);
+	min-height: 100vh;
+	padding: 20px 20px 50px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, .8);
+  width: var(--element-default-width);
+  max-width: var(--element-max-width-lg);
+  padding: calc(var(--padding-primary) * 2);
+  margin-bottom: 30px;
+  border-radius: var(--border-radius);
+}
+
+.grid {
+	display: grid;
+	gap: 15px;
+	grid-template-columns: repeat(5, 1fr);
+	max-width: var(--element-max-width-lg);
+	width: var(--element-default-width);
+	margin: 0 auto;
+	padding: var(--padding-primary);
+}
+
+.card {
+	aspect-ratio: 3/4;
+	width: var(--element-default-width);
+	background-color: var(--text-color-primary);
+	border-radius: var(--border-radius);
+	position: relative;
+	transition: 0.4s;
+	transform-style: preserve-3d;
+}
+
+.face {
+	position: absolute;
+	width: var(--element-default-width);
+	height: var(--element-default-width);
+	background-size: cover;
+	object-fit: cover;
+	background-position: center;
+	border: 2px solid #aaa;
+	transition: all 0.4s ease;
+}
+
+.front,
+.back {
+	border-radius: var(--border-radius);
+}
+
+.front {
+	transform: rotateY(180deg);
+}
+
+.back {
+	background-image: url(../images/foto_base.jpeg);
+	backface-visibility: hidden;
+}
+
+.reveal-card {
+	pointer-events: none;
+	transform: rotateY(180deg);
+}
+
+.disabled-card {
+	/* filter: saturate(0); */
+	opacity: 0.5;
+}
+
+.modal_win_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(3, 3, 3, .6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 0 30px;
+  transform: scale(0);
+  transition: all .5s;
+}
+
+.modal_win_container.show {
+  transform: scale(1);
+}
+
+.modal_win_container .modal {
+  background-color: rgba(255, 255, 255, .8);
+  padding: calc(var(--padding-primary) * 2);
+  border-radius: 8px;
+}
+
+.modal_win_container .modal p {
+  color: #000;
+  text-align: center;
+}
+
+.modal_win_container .modal,
+.modal_win_container span {
+  color: #fff;
+}
+
+.modal_win_container span {
+  cursor: pointer;
+  font-size: calc(var(--font-size-lg) * 2);
+  position: absolute;
+  right: 60px;
+  top: 60px;
+}
+
+@media screen and (max-width: 700px) {
+  header,
+  .modal_win_container .modal p {
+    font-size: calc(var(--font-size-md) - 0.1em);
+  }
+}
