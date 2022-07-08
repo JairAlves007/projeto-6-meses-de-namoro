@@ -70,8 +70,8 @@ header {
 	backface-visibility: hidden;
 }
 
-.reveal-card {
-	pointer-events: none;
+.card.reveal-card {
+	/* pointer-events: none; */
 	transform: rotateY(180deg);
 }
 
@@ -109,6 +109,7 @@ header {
 .modal_win_container .modal p {
   color: #000;
   text-align: center;
+	line-height: 20px;
 }
 
 .modal_win_container .modal,
